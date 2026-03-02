@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech Equipment Rental - Multi-Step Booking</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="theme-light">
+    <header class="app-header">
+        <div class="logo-brand">⚙️ TechRent<span>.Pro</span></div>
+        <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle dark mode">
+            <span class="theme-toggle__icon">☾</span>
+        </button>
+    </header>
+
+    <main class="app">
+        <div class="app-container">
+            <!-- Sidebar with progress steps -->
+            <aside class="steps-sidebar" aria-label="Booking progress">
+                <ol class="steps-list">
+                    <li class="step-indicator is-active" data-step="1">
+                        <span class="step-number">1</span>
+                        <div class="step-labels">
+                            <span class="step-label-small">Step 1</span>
+                            <span class="step-label-main">Your Details</span>
+                        </div>
+                    </li>
+                    <li class="step-indicator" data-step="2">
+                        <span class="step-number">2</span>
+                        <div class="step-labels">
+                            <span class="step-label-small">Step 2</span>
+                            <span class="step-label-main">Choose Equipment</span>
+                        </div>
+                    </li>
+                    <li class="step-indicator" data-step="3">
+                        <span class="step-number">3</span>
+                        <div class="step-labels">
+                            <span class="step-label-small">Step 3</span>
+                            <span class="step-label-main">Rental Options</span>
+                        </div>
+                    </li>
+                    <li class="step-indicator" data-step="4">
+                        <span class="step-number">4</span>
+                        <div class="step-labels">
+                            <span class="step-label-small">Step 4</span>
+                            <span class="step-label-main">Order Review</span>
+                        </div>
+                    </li>
+                </ol>
+            </aside>
+
+            <!-- Main form content -->
+            <section class="form-area">
+                <form id="booking-form" novalidate>
+                    <!-- Progress bar -->
+                    <div class="progress-bar-container">
+                        <div class="progress-bar-track">
+                            <div class="progress-bar-fill" id="progress-bar-fill"></div>
+                        </div>
+                        <p class="progress-text" id="progress-text">Step 1 of 4</p>
+                    </div>
+
+                    <!-- STEP 1: Customer Information -->
+                    <section class="form-step is-active" data-step="1">
+                        <h1 class="step-heading">Your Contact Information</h1>
+                        <p class="step-subtext">Let us know how to reach you regarding your rental.</p>
+
+                        <div class="form-field">
+                            <label for="fullName" class="field-label">
+                                Full Name
+                                <span class="required-asterisk">*</span>
+                                <span class="field-hint">(e.g., John Williams)</span>
+                            </label>
+                            <input
+                                type="text"
+                                id="fullName"
+                                name="fullName"
+                                class="input-field"
+                                placeholder="John Williams"
+                                required
+                                autocomplete="name"
+                            >
+                            <span class="error-message" data-error-for="fullName"></span>
+                        </div>
+
+                        <div class="form-field">
+                            <label for="email" class="field-label">
+                                Email Address
+                                <span class="required-asterisk">*</span>
+                                <span class="field-hint">(e.g., john.williams@email.com)</span>
+                            </label>
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                class="input-field"
+                                placeholder="john.williams@email.com"
+                                required
+                                autocomplete="email"
+                            >
+                            <span class="error-message" data-error-for="email"></span>
+                        </div>
+
+                        <div class="form-field">
+                            <label for="phone" class="field-label">
+                                Phone Number
+                                <span class="required-asterisk">*</span>
+                                <span class="field-hint">(e.g., +1 555-123-4567)</span>
+                            </label>
+                            <input
+                                type="tel"
+                                id="phone"
+                                name="phone"
+                                class="input-field"
+                                placeholder="+1 555-123-4567"
+                                required
+                                autocomplete="tel"
+                            >
+                            <span class="error-message" data-error-for="phone"></span>
+                        </div>
+                    </section>
+
+                    <!-- STEP 2: Equipment Selection -->
+                    <section class="form-step" data-step="2">
+                        <h1 class="step-heading">Select Your Equipment</h1>
+                        <p class="step-subtext">Choose the technology you need for your project. Select one main equipment.</p>
+
+                        <div class="equipment-grid">
+                            <label class="equipment-card">
+                                <input
+                                    type="radio"
+                                    name="equipment"
+                                    value="4K-Camera"
+                                    class="radio-input"
+                                    data-equipment-id="4k-camera"
+                                    required
+                                >
+                                <div class="equipment-card-content">
+                                    <h3 class="equipment-name">4K Video Camera</h3>
+                                    <p class="equipment-desc">Professional 4K recording, stabilized lens</p>
+                                    <span class="equipment-price">$150/day</span>
+                                </div>
+                            </label>
+
+                            <label class="equipment-card">
+                                <input
+                                    type="radio"
+                                    name="equipment"
+                                    value="drone"
+                                    class="radio-input"
+                                    data-equipment-id="drone"
+                                >
+                                <div class="equipment-card-content">
+                                    <h3 class="equipment-name">Professional Drone</h3>
+                                    <p class="equipment-desc">4K aerial imaging, 45min battery</p>
+                                    <span class="equipment-price">$200/day</span>
+                                </div>
+                            </label>
+
+                            <label class="equipment-card">
+                                <input
+                                    type="radio"
+                                    name="equipment"
+                                    value="lighting-kit"
+                                    class="radio-input"
+                                    data-equipment-id="lighting-kit"
+                                >
+                                <div class="equipment-card-content">
+                                    <h3 class="equipment-name">Professional Lighting Kit</h3>
+                                    <p class="equipment-desc">3x LED panels, full accessories</p>
+                                    <span class="equipment-price">$80/day</span>
+                                </div>
+                            </label>
+
+                            <label class="equipment-card">
+                                <input
+                                    type="radio"
+                                    name="equipment"
+                                    value="laptop"
+                                    class="radio-input"
+                                    data-equipment-id="laptop"
+                                >
+                                <div class="equipment-card-content">
+                                    <h3 class="equipment-name">High-Performance Laptop</h3>
+                                    <p class="equipment-desc">RTX 4090, 32GB RAM, Thunderbolt</p>
+                                    <span class="equipment-price">$120/day</span>
+                                </div>
+                            </label>
+
+                            <label class="equipment-card">
+                                <input
+                                    type="radio"
+                                    name="equipment"
+                                    value="gimbal"
+                                    class="radio-input"
+                                    data-equipment-id="gimbal"
+                                >
+                                <div class="equipment-card-content">
+                                    <h3 class="equipment-name">3-Axis Gimbal</h3>
+                                    <p class="equipment-desc">Smooth footage control, wireless</p>
+                                    <span class="equipment-price">$90/day</span>
+                                </div>
+                            </label>
+
+                            <label class="equipment-card">
+                                <input
+                                    type="radio"
+                                    name="equipment"
+                                    value="sound-system"
+                                    class="radio-input"
+                                    data-equipment-id="sound-system"
+                                >
+                                <div class="equipment-card-content">
+                                    <h3 class="equipment-name">Portable Sound System</h3>
+                                    <p class="equipment-desc">Bluetooth, wireless mics, subwoofer</p>
+                                    <span class="equipment-price">$75/day</span>
+                                </div>
+                            </label>
+                        </div>
+                        <span class="error-message" data-error-for="equipment"></span>
+                    </section>
+
+                    <!-- STEP 3: Rental Options -->
+                    <section class="form-step" data-step="3">
+                        <h1 class="step-heading">Customize Your Rental</h1>
+                        <p class="step-subtext">Choose rental duration and add optional services.</p>
+
+                        <!-- Duration Selection -->
+                        <div class="options-section">
+                            <h2 class="section-title">Rental Duration</h2>
+                            <div class="duration-options">
+                                <label class="option-card duration-option">
+                                    <input
+                                        type="radio"
+                                        name="duration"
+                                        value="1-day"
+                                        class="radio-input"
+                                        checked
+                                        required
+                                    >
+                                    <span class="option-label">1 Day</span>
+                                </label>
+                                <label class="option-card duration-option">
+                                    <input
+                                        type="radio"
+                                        name="duration"
+                                        value="3-days"
+                                        class="radio-input"
+                                    >
+                                    <span class="option-label">3 Days <span class="savings-badge">-15%</span></span>
+                                </label>
+                                <label class="option-card duration-option">
+                                    <input
+                                        type="radio"
+                                        name="duration"
+                                        value="1-week"
+                                        class="radio-input"
+                                    >
+                                    <span class="option-label">1 Week <span class="savings-badge">-25%</span></span>
+                                </label>
+                                <label class="option-card duration-option">
+                                    <input
+                                        type="radio"
+                                        name="duration"
+                                        value="1-month"
+                                        class="radio-input"
+                                    >
+                                    <span class="option-label">1 Month <span class="savings-badge">-35%</span></span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Additional Services -->
+                        <div class="options-section">
+                            <h2 class="section-title">Additional Services</h2>
+                            <div class="services-list">
+                                <label class="service-checkbox">
+                                    <input
+                                        type="checkbox"
+                                        name="services"
+                                        value="insurance"
+                                        class="checkbox-input"
+                                        data-service-id="insurance"
+                                    >
+                                    <div class="service-info">
+                                        <span class="service-name">Equipment Insurance</span>
+                                        <span class="service-desc">Full damage protection coverage</span>
+                                    </div>
+                                    <span class="service-price">+$25/day</span>
+                                </label>
+
+                                <label class="service-checkbox">
+                                    <input
+                                        type="checkbox"
+                                        name="services"
+                                        value="delivery"
+                                        class="checkbox-input"
+                                        data-service-id="delivery"
+                                    >
+                                    <div class="service-info">
+                                        <span class="service-name">Delivery Service</span>
+                                        <span class="service-desc">Free pickup and delivery to your location</span>
+                                    </div>
+                                    <span class="service-price">+$50/rental</span>
+                                </label>
+
+                                <label class="service-checkbox">
+                                    <input
+                                        type="checkbox"
+                                        name="services"
+                                        value="technician"
+                                        class="checkbox-input"
+                                        data-service-id="technician"
+                                    >
+                                    <div class="service-info">
+                                        <span class="service-name">Expert Technician</span>
+                                        <span class="service-desc">Professional setup and guidance included</span>
+                                    </div>
+                                    <span class="service-price">+$60/day</span>
+                                </label>
+
+                                <label class="service-checkbox">
+                                    <input
+                                        type="checkbox"
+                                        name="services"
+                                        value="backup"
+                                        class="checkbox-input"
+                                        data-service-id="backup"
+                                    >
+                                    <div class="service-info">
+                                        <span class="service-name">Backup Equipment</span>
+                                        <span class="service-desc">Standby equipment in case of issues</span>
+                                    </div>
+                                    <span class="service-price">+$40/rental</span>
+                                </label>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- STEP 4: Order Summary & Confirmation -->
+                    <section class="form-step" data-step="4">
+                        <h1 class="step-heading">Booking Summary</h1>
+                        <p class="step-subtext">Review your rental details before confirmation.</p>
+
+                        <!-- Customer Summary -->
+                        <div class="summary-section">
+                            <h2 class="summary-section-title">Customer Information</h2>
+                            <div class="summary-block">
+                                <div class="summary-row">
+                                    <span class="summary-label">Name:</span>
+                                    <span class="summary-value" id="summary-name">-</span>
+                                </div>
+                                <div class="summary-row">
+                                    <span class="summary-label">Email:</span>
+                                    <span class="summary-value" id="summary-email">-</span>
+                                </div>
+                                <div class="summary-row">
+                                    <span class="summary-label">Phone:</span>
+                                    <span class="summary-value" id="summary-phone">-</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Equipment Summary -->
+                        <div class="summary-section">
+                            <h2 class="summary-section-title">Equipment Details</h2>
+                            <div class="summary-block">
+                                <div class="summary-row">
+                                    <span class="summary-label">Equipment:</span>
+                                    <span class="summary-value" id="summary-equipment">-</span>
+                                </div>
+                                <div class="summary-row">
+                                    <span class="summary-label">Daily Rate:</span>
+                                    <span class="summary-value" id="summary-daily-rate">-</span>
+                                </div>
+                                <div class="summary-row">
+                                    <span class="summary-label">Duration:</span>
+                                    <span class="summary-value" id="summary-duration">-</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Services Summary -->
+                        <div class="summary-section" id="services-summary-section" style="display: none;">
+                            <h2 class="summary-section-title">Additional Services</h2>
+                            <div class="summary-block" id="services-summary-list"></div>
+                        </div>
+
+                        <!-- Cost Summary -->
+                        <div class="cost-summary">
+                            <div class="cost-row">
+                                <span class="cost-label">Equipment Subtotal:</span>
+                                <span class="cost-value" id="equipment-subtotal">$0</span>
+                            </div>
+                            <div class="cost-row">
+                                <span class="cost-label">Add-on Services:</span>
+                                <span class="cost-value" id="addons-total">$0</span>
+                            </div>
+                            <div class="cost-row total-cost">
+                                <span class="cost-label">Total Rental Cost:</span>
+                                <span class="cost-value" id="total-cost">$0</span>
+                            </div>
+                        </div>
+
+                        <!-- Confirmation message -->
+                        <div class="confirmation-message" id="confirmation-message" style="display: none;">
+                            <div class="success-icon">✓</div>
+                            <h2>Booking Confirmed!</h2>
+                            <p>Your equipment rental has been successfully booked. A confirmation email will be sent shortly.</p>
+                        </div>
+                    </section>
+
+                    <!-- Form Navigation -->
+                    <div class="form-navigation">
+                        <button type="button" id="prev-btn" class="nav-button nav-button--secondary" style="display: none;">
+                            ← Previous
+                        </button>
+                        <button type="button" id="next-btn" class="nav-button nav-button--primary">
+                            Next →
+                        </button>
+                        <button type="submit" id="submit-btn" class="nav-button nav-button--success" style="display: none;">
+                            Complete Booking
+                        </button>
+                    </div>
+                </form>
+            </section>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
