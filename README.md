@@ -100,4 +100,4 @@ I used GitHub Copilot throughout the project to accelerate boilerplate code and 
 
 ## Acknowledgments
 
-Thanks to Frontend Mentor for the challenge and to the community for sharing insights. This project was completed solo, but I benefited from studying other people's multi-step form patterns and accessibility tips.
+Thanks to Frontend Mentor for the challenge and to the community for sharing insights. 
