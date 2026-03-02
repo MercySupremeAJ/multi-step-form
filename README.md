@@ -41,8 +41,8 @@ The project adapts the generic multi-step form requirements to a tech equipment 
 
 ### Links
 
-- Solution URL: [https://github.com/MercySupremeAJ/multi-step-form]
-- Live Site URL: [https://your-live-site-url.com]
+- Solution URL: https://github.com/MercySupremeAJ/multi-step-form-main
+- Live Site URL: https://your-live-site-url.com
 
 ## My process
 
