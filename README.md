@@ -41,8 +41,8 @@ The project adapts the generic multi-step form requirements to a tech equipment 
 
 ### Links
 
--[ Solution URL: ](https://github.com/MercySupremeAJ/multi-step-form)
-- Live Site URL: (multi-step-form-kappa-ebon.vercel.app)
+- Solution URL: https://github.com/MercySupremeAJ/multi-step-form
+- Live Site URL: multi-step-form-kappa-ebon.vercel.app
 
 ## My process
 
